@@ -52,37 +52,76 @@ table {
 /* Here reset ends*/
 
 
-
 .main_container{
     margin: auto;
     border-style: solid;
     border-color:#334455;
     border-width: 2px;
     text-align: center;
-    min-height: 450px;
+    min-height: 200px;
     width:40%;
     margin-top: 30px;
     background-color: #ffffcc;
+    overflow: auto;
 }
 
 #player_guess {
    height: 50px;
    width: 50px;
    border-radius: 50px;
-   
     border-top-right-radius:100%;
     border-top-left-radius: 100%;
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 0;
-   transform:rotateX(-45deg);
-   
+   -webkit-transform:rotate(45deg);
+    border:1px solid #334477;
+    padding: 2px;
+    font-weight: bold;
+    font-size: 20px;  
 }
+
+input:focus{
+    outline-width: 0;
+}
+
 h1{
     font-size: 46px;
     font-weight: 400;
     color: #553344;
 }
+
 h2{
     font-size: 24px;
+
+}
+
+
+#beeker{
+    border:2px solid #999999;
+    border-top: 0;
+    width: 70%;
+    margin:50px auto;
+    min-height: 40px;
+    text-align: left;
+    font-size: 25px;
+    box-shadow: 10px 10px 5px #999999;
+    
+
+}
+
+
+button{
+    height: 2em;
+    width: 6em;
+    margin: auto;
+    margin-top: 15px;
+    font-size: 20px;
+}
+#message{
+    border:2px solid #999999;
+    width: 90%;
+    margin:15px auto;
+    min-height: 40px;
+    font-size: 25px;
 
 }
