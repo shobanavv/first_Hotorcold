@@ -9,9 +9,9 @@ $(document).ready(function(){
     var difference= function(a,b) {
         return Math.abs(a-b)
         }
+
    
-   
-    $("#play").click(function(){
+   var run_play = function(){
     guessNum= Math.floor($("#player_guess").val());
    
     $("#player_guess").val("");//clear inputfield after button click.
@@ -52,19 +52,24 @@ $(document).ready(function(){
         }
 
      
-if (key==guessNum) {
-        msg= "Woo Hoo!!!! You got it. You took  "+ clicks + "  tries.";
-     }
+        if (key==guessNum) {
+                msg= "Woo Hoo!!!! You got it. You took  "+ clicks + "  tries.";
+             }
 
-if (isNaN(guessNum) || guessNum ==" " || guessNum>100) {
-     $("#comments").val("Enter a valid number between 1 and 100." );
-}
- else {
-    your_try.push(guessNum); //storing all guessed number in an array.
-  $("#comments").val(msg);
-    $("#your_guess").val(your_try); //Displaying all guessed numbers.
-}
-    
-    });
+        if (isNaN(guessNum) || guessNum ==" " || guessNum>100) {
+             $("#comments").val("Enter a valid number between 1 and 100." );
+        }
+         else {
+            your_try.push(guessNum); //storing all guessed number in an array.
+          $("#comments").val(msg);
+            $("#your_guess").val(your_try); //Displaying all guessed numbers.
+        }
+    };
+        $("#play").click(run_play);
+        $("#player_guess").keydown(function(enter_key){
+            if (enter_key.keyCode === 13) {
+                run_play();
+            }
+        });
     
 });
