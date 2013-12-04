@@ -31,33 +31,42 @@ $(document).ready(function(){
         
         if (diff>=1 && diff<=5) {
             msg = " Very close - Boiling";
+            $("#message").css("background-color"," #ff0000");
         }
         else if (diff>=6 && diff<=10) { 
-            msg = " Getting Hotter";
+            msg = " Hot";
+            $("#message").css("background-color"," #cc3333");
         }
        else if (diff>10 && diff<=20) {
-        msg = "Hot";
+        msg = "Getting Hotter";
+        $("#message").css("background-color"," #ff6633");
        }
        else if (diff>20 && diff<=30) {
         msg = "warm";
+        $("#message").css("background-color"," #ffff66");
        }
         else if (diff>30 && diff<=40) {
          msg= "Normal";
+         $("#message").css("background-color"," #ccffff");
         }
         else if (diff>40 && diff<=50) {
             msg = "cold";
+            $("#message").css("background-color"," #a7d3ff");
         }
         else {
             msg = "very cold";
+            $("#message").css("background-color"," #0066ff");
         }
 
      
         if (key==guessNum) {
                 msg= "Woo Hoo!!!! You got it. You took  "+ clicks + "  tries.";
+                 $("#message").css("background-color"," #00ff00");
              }
 
         if (isNaN(guessNum) || guessNum ==" " || guessNum>100) {
              $("#comments").val("Enter a valid number between 1 and 100." );
+              $("#message").css("background-color"," #ffffff");
         }
          else {
             your_try.push(guessNum); //storing all guessed number in an array.
