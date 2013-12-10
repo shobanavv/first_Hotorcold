@@ -51,77 +51,89 @@ table {
 }
 /* Here reset ends*/
 
-
-.main_container{
+body {
+    background-color: #E3A849;
+}
+.main_container {
     margin: auto;
     border-style: solid;
     border-color:#334455;
     border-width: 2px;
     text-align: center;
     min-height: 200px;
-    width:40%;
-    margin-top: 30px;
-    background-color: #ffffcc;
+    width:50%;
+    margin-top: 80px;
+    background-color: #05f2ee;
     overflow: auto;
+    border-radius: 15px;
 }
 
 #player_guess {
-   height: 50px;
-   width: 50px;
-   border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
     border-top-right-radius:100%;
     border-top-left-radius: 100%;
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 0;
-   -webkit-transform:rotate(45deg);
-    border:1px solid #334477;
+    -webkit-transform:rotate(45deg);
+    border:1px solid #0A94F0;
     padding: 2px;
     font-weight: bold;
-    font-size: 20px;  
+    font-size: 20px; 
+    background-color: #0AE0F0; 
 }
 
-input:focus{
+input:focus {
+
     outline-width: 0;
 }
 
-h1{
+h1 {
     font-size: 46px;
     font-weight: 400;
     color: #553344;
 }
 
-h2{
+h2 {
     font-size: 24px;
-
+    color: #553344;
 }
 
 
-#beeker{
-    border:2px solid #999999;
+#beeker {
+    border:1px solid #0A94F0;
     border-top: 0;
     width: 70%;
-    margin:50px auto;
-    min-height: 40px;
-    text-align: left;
+    margin:30px auto;
+    min-height: 80px;
+    /*text-align: left;*/
     font-size: 25px;
-    box-shadow: 10px 10px 5px #999999;
-    
-
+    color: #553344;
+    border-radius: 50px;
 }
 
 
-button{
+button {
     height: 2em;
     width: 6em;
     margin: auto;
     margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 5px;
     font-size: 20px;
+    border-radius: 15px;
+    background-color: #0AE0F0;
+    border:1px solid #0A94F0;
+    color:#553344;    
 }
-#message{
-    border:2px solid #999999;
-    width: 90%;
-    margin:15px auto;
-    min-height: 40px;
-    font-size: 25px;
 
+#message {
+   border:1px solid #0A94F0;
+    width: 80%;
+    margin:auto;
+    min-height: 50px;
+    font-size: 25px;
+    color: #553344;
+    border-radius: 15px;
 }
