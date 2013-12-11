@@ -67,22 +67,22 @@ $(document).ready(function() {
             current_diff = difference(key, guessNum);      //comparing current number with key.  
             console.log("Difference   " + current_diff);
             
-            if (diff>=1 && diff<=5) {
+            if (current_diff==1 && current_diff<=5) {
                 msg = "Boiling";
                 $("#message").css("background-color"," #ff0000");
-            } else if (diff>=6 && diff<=10) { 
+            } else if (current_diff>=6 && current_diff<=10) { 
                 msg = "Very Hot";
                 $("#message").css("background-color"," #cc3333");
-            } else if (diff>10 && diff<=20) {
+            } else if (current_diff>10 && current_diff<=20) {
                 msg = "Hot";
                 $("#message").css("background-color"," #ff6633");
-            } else if (diff>20 && diff<=30) {
+            } else if (current_diff>20 && current_diff<=30) {
                 msg = "Warm";
                 $("#message").css("background-color"," #ffff66");
-            } else if (diff>30 && diff<=40) {
+            } else if (current_diff>30 && current_diff<=40) {
                 msg= "Cold";
                 $("#message").css("background-color"," #ccffff");
-            } else if (diff>40 && diff<=50) {
+            } else if (current_diff>40 && current_diff<=50) {
                 msg = "Very Cold";
                 $("#message").css("background-color"," #a7d3ff");
             } else {
