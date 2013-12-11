@@ -57,6 +57,7 @@ var run_play = function(key) {
     } else {      
             current_diff = difference(key,guessNum);      //comparing current number with key.  
             console.log("Difference   "+ current_diff);
+            
 
             if(current_diff<pre_diff || guessNum-key<0) {
                 if(current_diff<5) {
@@ -81,14 +82,14 @@ var run_play = function(key) {
                             
                             } else {
                             
-                                msg="Normal.";
+                                msg="Too low";
                                 $("#beeker").css("background-color"," #F0E5A3");
                                 
                                 }
                 
             } else if(current_diff<5) {
                     
-                msg=" Answer is around the corner. You are moving away";
+                msg=" You are moving away. Answer is around the corner. ";
                 $("#beeker").css("background-color","#C4F0A3");
                 
                     } else if(current_diff<10) {
@@ -97,7 +98,7 @@ var run_play = function(key) {
                         $("#beeker").css("background-color"," #A3C0F0");
                             
                         } else if(current_diff<25) {
-                                msg=" Colder"; 
+                                msg=" Too High-Colder"; 
                                 $("#beeker").css("background-color"," #80ABE8"); 
                                
                             } else {
