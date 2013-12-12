@@ -18,10 +18,12 @@ $(document).ready(function() {
         current_diff = null;
         msg=" ";
         clicks = 0;
+        $("#player_guess").val("");
         $("#player_guess").focus();
         $("#your_guess").val(your_try);
         $("#comments").val(msg);
         $("#beeker").css("background-color","#05f2ee");
+        $("#message").css("background-color","#05f2ee");
     }
 
     //Finding difference between key with user guess.
@@ -43,68 +45,75 @@ $(document).ready(function() {
         if (isNaN(guessNum) || guessNum ==" " || guessNum > 100 || guessNum == 0) {
             $("#comments").val("Enter a valid number between 1 and 100." );
             $("#beeker").css("background-color","#05f2ee");
+            $("#player_guess").val("");
+            $("#player_guess").focus();
             return;
         } 
 
         your_try.push(guessNum); //storing all guessed number in an array.
         $("#your_guess").val(your_try); //Displaying guessed numbers into beeker.
 
-        clicks=clicks+1; //Counting all tries. To show player, in how many tries they found the number I thought.
+        clicks = clicks + 1; //Counting all tries. To show player, in how many tries they found the number I thought.
 
         //User guessed it in first try?
          if (key == guessNum) {
                 if(clicks==1) {      //if player find answer in first try. 
                     msg= "Woo Hoo!! You got it. You took only " + clicks + " try. Cool!!!";
-                    $("#beeker").css("background-color"," #5EAD5E");
-
+                    $("#message").css("background-color", "#00FF00");
                 } else {
                     msg= "Woo Hoo!!!! You got it. You took  " + clicks + "  tries.";
-                    $("#beeker").css("background-color"," #48F50A");
+                    $("#message").css("background-color", "#00FF00");
                 }
+                $("#comments").val(msg);
             return;    
         }
 
             current_diff = difference(key, guessNum);      //comparing current number with key.  
-            console.log("Difference   " + current_diff);
             
-            if (current_diff==1 && current_diff<=5) {
+            if (current_diff >= 1 && current_diff < 6) {
                 msg = "Boiling";
-                $("#message").css("background-color"," #ff0000");
-            } else if (current_diff>=6 && current_diff<=10) { 
+                $("#message").css("background-color", "#ff0000");
+            } else if (current_diff >= 6 && current_diff <= 10) { 
                 msg = "Very Hot";
-                $("#message").css("background-color"," #cc3333");
-            } else if (current_diff>10 && current_diff<=20) {
+                $("#message").css("background-color", "#cc3333");
+            } else if (current_diff > 10 && current_diff <= 20) {
                 msg = "Hot";
-                $("#message").css("background-color"," #ff6633");
-            } else if (current_diff>20 && current_diff<=30) {
+                $("#message").css("background-color", "#ff6633");
+            } else if (current_diff > 20 && current_diff <= 30) {
                 msg = "Warm";
-                $("#message").css("background-color"," #ffff66");
-            } else if (current_diff>30 && current_diff<=40) {
+                $("#message").css("background-color", "#ffff66");
+            } else if (current_diff > 30 && current_diff <= 40) {
                 msg= "Cold";
-                $("#message").css("background-color"," #ccffff");
-            } else if (current_diff>40 && current_diff<=50) {
+                $("#message").css("background-color", "#ccffff");
+            } else if (current_diff > 40 && current_diff<=50) {
                 msg = "Very Cold";
-                $("#message").css("background-color"," #a7d3ff");
+                $("#message").css("background-color", "#a7d3ff");
             } else {
                 msg = "Freezing";
-                $("#message").css("background-color"," #0066ff");
+                $("#message").css("background-color", "#0066ff");
             }
 
             if (pre_diff !== null ){
                 if(current_diff < pre_diff) {
-                    msg += ", getting hotter";
+                    msg += "- You are coming towards key.";
 
                 } else if (current_diff > pre_diff){
-                    msg += ", getting colder"
+                    msg += "- You are going away."
                 }
             }
 
             pre_diff = current_diff;
+            if($("#main_container").width(320).height(480)){
+                if  (your_try.length > 3) {
+                    your_try.shift();
+                }
+            }   else{  
+                    //Displaying current 10 values in beeker. Just want to have current guesses.
+                    if (your_try.length > 10) {
+                    your_try.shift();
+                    }
+                }
 
-        //Displaying current 10 values in beeker. Just want to have current guesses.
-        if (your_try.length > 10) {
-            your_try.shift();
-        }
         $("#player_guess").val("");                         //clear input field after drop button click or enter key.
         $("#player_guess").focus();                         //cursor position ready in inputfield.
         $("#comments").val(msg);
@@ -125,9 +134,9 @@ $(document).ready(function() {
 
     // calling function after Start over button clicked.
    $("#start_over").click(function() {
-    
         play_again();
     }); //calling function give up to give answer.
+
    $("#give_up").click(function(){
         $("#comments").val("Answer is " + key +".");
    });
