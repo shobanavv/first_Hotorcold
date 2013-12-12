@@ -103,7 +103,7 @@ $(document).ready(function() {
             }
 
             pre_diff = current_diff;
-            if($("#main_container").width(320).height(480)){
+            if($("#full_body").width() <= 320 || $("#full_body").height() <= 480){
                 if  (your_try.length > 3) {
                     your_try.shift();
                 }
