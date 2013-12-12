@@ -103,12 +103,16 @@ $(document).ready(function() {
             }
 
             pre_diff = current_diff;
-             
-            //Displaying current 10 values in beeker. Just want to have current guesses.
-            if (your_try.length > 6) {
-                your_try.shift();
-            }
-                
+            if($("#full_body").width() <= 840 || $("#full_body").height() <= 420){
+                if  (your_try.length > 2) {
+                    your_try.shift();
+                }
+            }   else{  
+                    //Displaying current 10 values in beeker. Just want to have current guesses.
+                    if (your_try.length > 10) {
+                    your_try.shift();
+                    }
+                }
 
         $("#player_guess").val("");                         //clear input field after drop button click or enter key.
         $("#player_guess").focus();                         //cursor position ready in inputfield.
